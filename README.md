@@ -15,4 +15,4 @@ This is the project you get when you run `gridsome create new-project`.
 
 ### 3. Deploy to IONOS
 
-[![Ship to IONOS](ship-to-ionos.png)](https://buildwith.ionos.com/setup?repo=https://github.com/buildwith-ionos/gridsome-starter-default)
+[![Ship to IONOS](static/ship-to-ionos.webp)](https://buildwith.ionos.com/setup?repo=https://github.com/buildwith-ionos/gridsome-starter-default)
