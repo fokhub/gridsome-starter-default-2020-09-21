@@ -1,0 +1,36 @@
+name: Buildwith-IONOS
+
+on: [push]
+
+jobs:
+  build-with-ionos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+      - name: Get Ionos Project data
+        uses: buildwith-ionos/retrieve-project-info-action@v0.1.2
+        id: project
+        with:
+          project: 60029b77-4a46-48e7-9e22-f86c07ecdd71
+          api-key: ${{ secrets.IONOS_API_KEY }}
+      - name: Setup Node.js 12.16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.16.x
+      - name: Prepare Project build environment
+        run: npm install
+      - name: Build Node project
+        run: npm run build
+        env:
+          SITE_URL: ${{ steps.project.outputs.site-url }}
+          CI: true
+      - name: Deploy to IONOS
+        uses: buildwith-ionos/deploy-to-ionos-action@v0.1.2
+        with:
+          remote-host: ${{ steps.project.outputs.remote-host }}
+          dist-folder: dist
+          api-key: ${{ secrets.IONOS_API_KEY }}
+          project: 60029b77-4a46-48e7-9e22-f86c07ecdd71
