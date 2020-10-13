@@ -16,3 +16,7 @@ This is the project you get when you run `gridsome create new-project`.
 ### 3. Ship to IONOS
 
 [![Ship to IONOS](static/ship-to-ionos.webp)](https://buildwith.ionos.com/setup?repo=https://github.com/buildwith-ionos/gridsome-starter-default)
+
+### 4. Build status
+
+![Buildwith-IONOS](https://github.com/fokhub/gridsome-starter-default-2020-09-21/workflows/Buildwith-IONOS/badge.svg?event=push)
